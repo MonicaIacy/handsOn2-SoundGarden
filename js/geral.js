@@ -1,29 +1,46 @@
-const SOUND_URL = "https://xp41-soundgarden-api.herokuapp.com"
+const SOUND_URL = "https://xp41-soundgarden-api.herokuapp.com/events"
 
-const inputNome = document.getElementById("nome")
-const inputBanner = document.getElementById("banner")
-const inputAtracoes = document.getElementById("atracoes")
-const inputDescricao = document.getElementById("descricao")
-const inputData = document.getElementById("data")
-const inputLotacao = document.getElementById("lotacao")
+const formCadastroEvento = document.querySelector('#cadastro-evento')
 
-//tratamento de caracteres especiais
+formCadastroEvento.addEventListener('submit', async (event) => {
 
-const preencherCampos = (dados) => {
-  
-  const{ name, poster, attractions, description, scheduled, number_tickets } = dados
+  event.preventDefault()
 
-  inputNome.value = name
-  inputBanner.value = poster
-  inputAtracoes.value = attractions //tratamento de vírgula
-  inputDescricao.value = description 
-  inputData.value = scheduled //tratamento para data
-  inputLotacao.value = number_tickets
+  const inputNome = document.getElementById("nome")
+  const inputBanner = document.getElementById("banner")
+  const inputAtracoes = document.getElementById("atracoes")
+  const inputDescricao = document.getElementById("descricao")
+  const inputData = document.getElementById("data")
+  const inputLotacao = document.getElementById("lotacao")
 
-}
+  //alert(inputNome.value)
 
-const getEventById = (id) => {
-  fetch(`${SOUND_URL}/eventos/:${id}`)
-  .then((response) => response.json())
-  .then(preencherCampos)
-}
+  const fullDateTime = new Date(inputData.value)
+
+  const novoEventoObj = {
+    "name": inputNome.value,
+    "poster": inputBanner.value,
+    "attractions": inputAtracoes.value.split(","),
+    "description": inputDescricao.value,
+    "scheduled": fullDateTime.toISOString(),
+    "number_tickets": inputLotacao.value
+  }
+
+  //convertendo obj para JSON
+  const novoEventoJSON = JSON.stringify(novoEventoObj)
+
+  //conexão com API para cadastrar novo evento
+  //salvando resposta na const
+  const resposta = await fetch(SOUND_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: novoEventoJSON
+  }).then((response) => {
+    return response.json()
+  }).then((responseOBJ) => {
+    console.log(responseOBJ)
+  })
+
+})
