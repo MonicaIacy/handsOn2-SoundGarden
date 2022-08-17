@@ -1,7 +1,7 @@
 const SOUND_URL = "https://xp41-soundgarden-api.herokuapp.com"
 
 
-    exibirDetalhesEvento();
+  
 
     const findID = () => {
 
@@ -42,6 +42,8 @@ const exibirDetalhesEvento = async () => {
         inputLotacao.value = dadosEvento.number_tickets;
 }
 
+exibirDetalhesEvento();
+
 const EditEvent = document.getElementById('EditEvent')
 EditEvent.addEventListener('submit', async (event) => {
     
@@ -69,7 +71,19 @@ EditEvent.addEventListener('submit', async (event) => {
 
     // convertendo Obj para JSON
     const EditEventoJSON = JSON.stringify(EditEventObj);
-    resposta()
+
+    //Pegando a Pagina admin
+
+    const findAdim = () => {
+
+      
+        //const Adim = window.location.hostname + '/admin.html'
+        const Adim = "file:///D:/Documentos/PROJETOS/soundgarden/admin.html"
+    
+        return Adim;
+    }
+
+   
 
     // conexão com API para cadastrar novo evento
     // salvando resposta na const
@@ -84,8 +98,10 @@ EditEvent.addEventListener('submit', async (event) => {
         console.log(response)
     }).then((responseOBJ) => {
         alert("Evento Atualizado")
-        window.location.href("admin.html")
+        //window.location.href = findAdim()
     });
+
+  
 
 });
 
