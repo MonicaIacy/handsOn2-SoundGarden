@@ -1,89 +1,91 @@
 const SOUND_URL = "https://xp41-soundgarden-api.herokuapp.com"
 
-const EdicaoEvento = (id) => {
-    console.log(id)
+
+    exibirDetalhesEvento();
+
+    const findID = () => {
+
+        const url = new URL(window.location.href);
+        const id = url.searchParams.get('id');
+    
+        return id;
+    }
 
     // Obtendo as informações do evento pelo metodo GET
 
-    getEvent().then((dados) => {
-        dados.forEach(element => {
-            if(element.id == id){
-                AdicionaParametroNoInput(element);
-            }
-            
-        });
-    }) 
+    
 
-    const FormEditEvent = document.getElementById('EditEvent');
+const exibirDetalhesEvento = async () => {
+        const dadosEvento =
+            await fetch('https://xp41-soundgarden-api.herokuapp.com/events/' + findID(), {
+                method: "GET",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then((response) => response.json());
+    
+        console.log(dadosEvento);
+    
+        const inputNome = document.getElementById("nome");
+        const inputAtracoes = document.getElementById("atracoes");
+        const inputDescricao = document.getElementById("descricao");
+        const inputData = document.getElementById("data");
+        const inputLotacao = document.getElementById("lotacao");
+        const inputBanner = document.getElementById("banner");
+    
+        inputNome.value = dadosEvento.name;
+        inputAtracoes.value = dadosEvento.attractions.join(', ');
+        inputBanner.value = dadosEvento.poster;
+        inputDescricao.value = dadosEvento.description;
+        inputData.value = dadosEvento.scheduled;
+        inputLotacao.value = dadosEvento.number_tickets;
+}
 
-    FormEditEvent.addEventListener('submit', (event) =>{
+const EditEvent = document.getElementById('EditEvent')
+EditEvent.addEventListener('submit', async (event) => {
+    
+    event.preventDefault();
 
-        const inputNome = document.getElementById("nome")
-        const inputBanner = document.getElementById("banner")
-        const inputAtracoes = document.getElementById("atracoes")
-        const inputDescricao = document.getElementById("descricao")
-        const inputData = document.getElementById("data")
-        const inputLotacao = document.getElementById("lotacao")
+    const inputNome = document.getElementById("nome");
+    const inputAtracoes = document.getElementById("atracoes");
+    const inputDescricao = document.getElementById("descricao");
+    const inputData = document.getElementById("data");
+    const inputLotacao = document.getElementById("lotacao");
+    const inputBanner = document.getElementById("banner");
 
-        const fullDateTime = new Date(inputData.value)
+    // conversão de data para padrão do banco de dados
+    const fullDateTime = new Date(inputData.value);
 
-    const EditEvent = {
+    // criando objeto com os dados do evento
+    const EditEventObj = {
         "name": inputNome.value,
         "poster": inputBanner.value,
         "attractions": inputAtracoes.value.split(","),
         "description": inputDescricao.value,
-        "scheduled": fullDateTime,
+        "scheduled": fullDateTime.toISOString(),
         "number_tickets": inputLotacao.value
-    }
+    };
 
-    PutEventById(EditEvent,id);
+    // convertendo Obj para JSON
+    const EditEventoJSON = JSON.stringify(EditEventObj);
+    resposta()
 
-
-    })
-
-}
-
-
-const PutEventById = (EditEvent,id) => {
-    console.log(EditEvent)
-    return fetch(`${SOUND_URL}/events/${id}`,{
+    // conexão com API para cadastrar novo evento
+    // salvando resposta na const
+    const resposta = await fetch('https://xp41-soundgarden-api.herokuapp.com/events/' + findID(), {
         method: "PUT",
+        mode: "cors",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(EditEvent)
-    })
-    .then((response) => console.log(response))
-    .then(() => {
-        alert("Evento criado")
+        body: EditEventoJSON
+    }).then((response) => {
+        console.log(response)
+    }).then((responseOBJ) => {
+        alert("Evento Atualizado")
         window.location.href("admin.html")
-    })
-    .catch(error => console.error(error))
-};
-
-
-const getEvent = ()  => {
-    return fetch(SOUND_URL).then((response) => {
-        if(response.status != 200){
-            console.log("Erro no servidor: ${response.status}")
-        }
-        else {
-            return response.json()
-        }
     });
-};
 
-const AdicionaParametroNoInput = (objeto) => {
-
-    const FormEditEvent = document.getElementById('EditEvent');
-
-    
-    FormEditEvent.getElementById('nome').value = objeto.nome
-    FormEditEvent.getElementById('banner').value = objeto.banner
-    FormEditEvent.getElementById('atracoes').value = objeto.atracoes
-    FormEditEvent.getElementById('descricao').value =  objeto.descricao
-    FormEditEvent.getElementById('data').value = objeto.data
-    FormEditEvent.getElementById('lotacao').value =  objeto.lotacao
-
-}
+});
 

@@ -1,20 +1,45 @@
 
-import { EdicaoEvent } from "./editar-evento";
+const SOUND_URL = 'https://xp41-soundgarden-api.herokuapp.com/events';
 
-const tableListEvent = document.getElementById('table');
+const listarEventos = async () => {
 
-tableListEvent.addEventListener('click', (event) =>{
-        const button= event.path[0].innerText
-        const id =  event.path[0].id
-        
-        if(button == 'editar'){
-            EdicaoEvento(id)
-                        
+    const eventos = await fetch(SOUND_URL, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
         }
-        if(button == 'excluir'){
-            deletarEvento(id)
-        }
-        if(button == 'ver reservas'){
-            xxxxxx(id);
-        }
-})
+    }).then((resposta) => {
+
+        //retorna lista em array de objetos
+        return resposta.json();
+    });
+
+    // console.log(eventos);
+
+    const tbody = document.querySelector('.lista-eventos tbody');
+
+    let htmlEventos = "";
+
+    eventos.forEach(evento => {
+        htmlEventos += `
+            <tr>
+                <th scope="row">#</th>
+                <td>${evento.scheduled}</td>
+                <td>${evento.name}</td>
+                <td>${evento.attractions.join(', ')}</td>
+                <td>
+                  <a href="reservas.html?id=${evento._id}" class="btn btn-dark">ver reservas</a>
+                  <a href="editar-evento.html?id=${evento._id}" class="btn btn-secondary">editar</a>
+                  <a href="excluir-evento.html?id=${evento._id}" class="btn btn-danger">excluir</a>
+                </td>
+              </tr>
+        `;
+    });
+
+    tbody.innerHTML = htmlEventos;
+
+
+}
+
+listarEventos();
