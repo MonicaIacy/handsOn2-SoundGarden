@@ -6,10 +6,10 @@
 ## 📕 Index
 
 
-* [📋 Statement](#📋-Statement)
-* [:computer: Preview](#:computer:-Preview)
-* [🖥 Technologies](#🖥-Technologies)
-* [📝 Authors](#📝-Authors)
+* [📋 Statement](##Statement)
+* [:computer: Preview](#Preview)
+* [🖥 Technologies](#Technologies)
+* [📝 Authors](#Authors)
 
 
 ## 📋 Statement
