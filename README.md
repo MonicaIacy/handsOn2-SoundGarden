@@ -4,12 +4,11 @@
 <hr>
 
 ## 📕 Index
-
-
-* [📋 Statement](##Statement)
-* [:computer: Preview](#Preview)
-* [🖥 Technologies](#Technologies)
-* [📝 Authors](#Authors)
+- [📋 Statement](#statement)
+* :computer: Preview
+* :cool: Website Features
+* 🖥 Technologies
+* 📝 Authors
 
 
 ## 📋 Statement
@@ -24,7 +23,12 @@ Access: https://monicaiacy.github.io/soundgarden
 
 *COLOCAR IMG DA HOME QUANDO ESTIVER COM OS BANNERS*
 
-
+## Website Features
+* Create event
+* Edit event
+* Delete event
+* Tickets reservation
+* Reservations list
 
 ## 🖥 Technologies
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" width="52" alt="css3 logo"  /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" width="52" alt="html5 logo"  />
