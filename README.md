@@ -33,4 +33,34 @@ Access: https://monicaiacy.github.io/soundgarden
 
 ## 📝 Authors
 
-Made by Mônica Mendes 👋🏻 [Contact me!](https://www.linkedin.com/in/monicaiacy/) and Jaqueline Victal
+<table>
+	<tr>
+		<td align="center">
+			<a href="https://github.com/MonicaIacy">
+				<img
+					width="100px"
+					height="auto"
+					src="https://github.com/MonicaIacy.png"
+					alt="Mônica Mendes"
+				/>
+				<br />
+				<sub>
+					<b>Mônica Iacy<br>Mendes</b>
+				</sub>
+			</a>
+		</td>
+        <td align="center">
+			<a href="https://github.com/JaquelineVictal">
+				<img
+					width="100px"
+					height="auto"
+					src="https://github.com/JaquelineVictal.png"
+					alt="Jaqueline Victal"
+				/>
+				<br />
+				<sub>
+					<b>Jaqueline<br>Victal</b>
+				</sub>
+			</a>
+		</td>
+</table>
