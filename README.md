@@ -5,17 +5,18 @@
 
 ## 📕 Index
 - [📋 Statement](#statement)
-* :computer: Preview
-* :cool: Website Features
-* 🖥 Technologies
-* 📝 Authors
+- [:computer: Preview](#preview)
+- [:cool: Website Features](#website--features)
+- [🖥 Technologies](#technologies)
+- [📝 Authors](#authors) 
 
+<br>
 
 ## 📋 Statement
 
 <p align="left">  A concert hall called Sound Garden will open and needs a website that displays the events and allows customers to book tickets through the Landing Page. </p>
 
-<hr>
+<br>
 
 ## :computer: Preview
 
@@ -23,17 +24,23 @@ Access: https://monicaiacy.github.io/soundgarden
 
 *COLOCAR IMG DA HOME QUANDO ESTIVER COM OS BANNERS*
 
-## Website Features
+<br>
+
+## :cool: Website Features
 * Create event
 * Edit event
 * Delete event
 * Tickets reservation
 * Reservations list
 
+<br>
+
 ## 🖥 Technologies
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" width="52" alt="css3 logo"  /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" width="52" alt="html5 logo"  />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" width="52" alt="javascript logo"  />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" width="52" alt="bootstrap logo"  />
+
+<br>
 
 ## 📝 Authors
 
