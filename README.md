@@ -22,7 +22,7 @@
 
 Access: https://monicaiacy.github.io/soundgarden
 
-*COLOCAR IMG DA HOME QUANDO ESTIVER COM OS BANNERS*
+![image](https://user-images.githubusercontent.com/73076957/185520387-955ad1af-b5c7-4997-8bfc-c31b371878a7.png)
 
 <br>
 
