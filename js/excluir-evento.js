@@ -40,6 +40,7 @@ button.addEventListener("click", async (event) => {
   }).then(response => console.log(response))
     .then(() => {
       alert('Evento excluído')
+      window.location.replace('admin.html?acao=edit')
     })
 })
 

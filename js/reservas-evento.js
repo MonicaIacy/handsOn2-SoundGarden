@@ -19,7 +19,7 @@ const reservationList = async () => {
   
   const table = document.querySelector("tbody")
   
-  const reservations = await fetch(`${SOUND_URL}/bookings/${id}`, {
+  const reservations = await fetch(`https://xp41-soundgarden-api.herokuapp.com/bookings/event/${id}`, {
     method: "GET",
     redirect: "follow",
     headers: {"Content-Type": "application/json"}
