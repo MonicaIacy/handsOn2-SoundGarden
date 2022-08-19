@@ -98,7 +98,7 @@ EditEvent.addEventListener('submit', async (event) => {
         console.log(response)
     }).then((responseOBJ) => {
         alert("Evento Atualizado")
-        //window.location.href = findAdim()
+        window.location.href = ("admin.html");
     });
 
   
