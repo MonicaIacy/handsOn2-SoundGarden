@@ -32,7 +32,7 @@ const reservationList = async () => {
       table.innerHTML += `
       <tr>
         <th scope="row">${reservations.indexOf(item) + 1}</th>
-        <td>${item['event'].scheduled}<td>
+        <td>${item['event'].scheduled}</td>
         <td>${item.owner_name}</td>
         <td>${item.owner_email}</td>
         <td>${item.number_tickets}</td>
