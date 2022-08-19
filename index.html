@@ -29,6 +29,7 @@
             <div id="eventos-principais" class="container d-flex justify-content-center align-items-center">
                 
             </div>
+        
             <div class="container text-center">
                 <a href="eventos.html" class="btn btn-secondary">ver todos os eventos</a>
             </div>
@@ -62,7 +63,27 @@
                 </div>
             </div>
         </section>
-
+        <div class="modal">            
+            <div class="modal-content">
+                <form id="formularioReserva" class="form-Reserva">
+                    <h1 class="container d-flex justify-content-center align-items-center">Faça a sua reserva</h1>
+                    <br>
+                    <label>Nome:</label>
+                    <input id="owner_name" type="text" placeholder="Digite o seu nome:">
+                    <br/><br/>
+                    <label>Email:</label>
+                    <input id="owner_email" type="text" placeholder="Digite o seu email:">
+                    <br/><br/>
+                    <label>Quantidade de ingressos:</label>
+                    <input id="number_tickets" type="text" placeholder="Digite a quantidade de ingressos:">
+                    <br/><br/>
+                    <div>
+                        <button id="close-btn" class="close-btn" type="button">Cancelar</button>
+                        <button id="salve-modal" class="submit-btn" type="submit" >Reserva</button>
+                    </div>
+                </form>
+            </div>            
+          </div>
     </main>
     <footer>
         <div class="container d-flex justify-content-center align-items-center">
